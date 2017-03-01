@@ -6,7 +6,7 @@ import {
   View,
   TextInput,
   TouchableHighlight,
-  ActivityIndicatorIOS
+  ActivityIndicator
 } from 'react-native';
 
 var styles = StyleSheet.create({
