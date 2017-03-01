@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Profile from './Profile';
 import {
   StyleSheet,
   Text,
@@ -50,15 +51,27 @@ export default class Dashboard extends Component {
   }
 
   goToProfile(event) {
-    1;
+    this.props.navigator.push({
+      title: 'Profile Page',
+      component: Profile,
+      passProps: {userInfo: this.props.userInfo}
+    });
   }
 
   goToRepos(event) {
-    1;
+    this.props.navigator.push({
+      title: 'Repos Page',
+      component: Profile,
+      passProps: {userInfo: this.props.userInfo}
+    });
   }
 
   goToNotes(event) {
-    1;
+    this.props.navigator.push({
+      title: 'Notes Page',
+      component: Profile,
+      passProps: {userInfo: this.props.userInfo}
+    });
   }
 
   render () {
