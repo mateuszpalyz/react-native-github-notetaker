@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../Utils/api';
+import Dashboard from './Dashboard';
 import {
   StyleSheet,
   Text,
