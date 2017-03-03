@@ -18,7 +18,7 @@ var styles = StyleSheet.create({
     alignSelf: 'center'
   },
   rowContainer: {
-    padding: 10
+    padding: 15
   },
   rowTitle: {
     color: '#48BBEC',
