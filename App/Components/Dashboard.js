@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Profile from './Profile';
+import Repositories from './Repositories';
+import api from '../Utils/api';
 import {
   StyleSheet,
   Text,
@@ -59,11 +61,17 @@ export default class Dashboard extends Component {
   }
 
   goToRepos(event) {
-    this.props.navigator.push({
-      title: 'Repos Page',
-      component: Profile,
-      passProps: {userInfo: this.props.userInfo}
-    });
+    api.getRepos(this.props.userInfo.login)
+      .then((res) => {
+        this.props.navigator.push({
+          title: 'Repos Page',
+          component: Repositories,
+          passProps: {
+            userInfo: this.props.userInfo,
+            repos: res
+          }
+        });
+      });
   }
 
   goToNotes(event) {
