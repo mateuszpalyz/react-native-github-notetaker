@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Profile from './Profile';
 import Repositories from './Repositories';
+import Notes from './Notes';
 import api from '../Utils/api';
 import {
   StyleSheet,
@@ -75,11 +76,18 @@ export default class Dashboard extends Component {
   }
 
   goToNotes(event) {
-    this.props.navigator.push({
-      title: 'Notes Page',
-      component: Profile,
-      passProps: {userInfo: this.props.userInfo}
-    });
+    api.getNotes(this.props.userInfo.login)
+      .then((jsonRes) => {
+        jsonRes = jsonRes || {};
+        this.props.navigator.push({
+          component: Notes,
+          title: 'Notes',
+          passProps: {
+            notes: jsonRes,
+            userInfo: this.props.userInfo
+          }
+        });
+      });
   }
 
   render () {
